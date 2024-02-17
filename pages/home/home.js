@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "@/Components/NavBar/NavBar";
 import { Divider, Grid, Typography, Box } from "@mui/material";
 import Primary_Button from "@/Components/Ui/Primary_Button";
@@ -12,13 +12,31 @@ import home from "../../public/assets/Images/home.png";
 import logo from "../../public/assets/Images/logo.png";
 import DualColorText from "@/Components/Ui/DualColorText";
 import Card from "@/Components/Ui/Card";
+import LoginModal from "@/Components/Modal/LoginModal";
+import OTPModal from "@/Components/Modal/OTPModal";
+import RegisterModal from "@/Components/Modal/RegisterModal";
 
 export default function Home() {
   const theme = useTheme();
+  const [modal, setModal] = useState(false);
+  const [otp, setOTP] = useState("");
+  const [registerInfo, setRegisterInfo] = useState({
+    fullName: "",
+    email: "",
+    gender: "",
+    dob: "",
+    terms: false,
+  });
+
+  console.log(registerInfo);
 
   return (
     <div>
-      <NavBar />
+      {/* <LoginModal modal={modal} setModal={setModal} /> */}
+      {/* <OTPModal modal={modal} setModal={setModal} otp={otp} setOTP={setOTP} /> */}
+      <RegisterModal modal={modal} setModal={setModal} registerInfo={registerInfo} setRegisterInfo={setRegisterInfo}/>
+
+      <NavBar setModal={setModal} />
 
       <div className="home-header-bg">
         <div className="home-header-title">
@@ -136,7 +154,6 @@ export default function Home() {
           <Card />
         </div>
       </div>
-     
     </div>
   );
 }
