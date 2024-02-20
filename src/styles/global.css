@@ -217,16 +217,8 @@ div.home-header-bg {
     background-color: #F2F4F3;
 }
 
-.list-home-con {
-    width: 100vw;
-    display: flex;
-}
 
-.list-right-con {
-    flex: 0.7;
-    overflow-y: auto;
-    max-height: 100vh;
-}
+
 
 .sort-button {
     display: flex;
@@ -246,7 +238,7 @@ div.home-header-bg {
 }
 
 .list-card-con {
-    width: 70vw;
+   width: '100%';
     background-color: #F2F4F3;
     height: 30vh;
     display: flex;
@@ -338,8 +330,10 @@ div.home-header-bg {
     border: 1px solid #717D93;
     border-radius: 15px;
     flex: 0.3;
-    padding: 5px;
-    margin-left: 5px;
+    padding: 6px;
+    width: '80%';
+    
+   
 }
 
 .list-left-filter-heading {
