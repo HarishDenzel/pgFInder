@@ -4,7 +4,7 @@ import router from "next/router";
 
 export default function Home() {
   useEffect(() => {
-    router.push("/list/list");
+    router.push("/list/");
   }, []);
   return <></>;
 }

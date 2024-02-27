@@ -16,7 +16,8 @@ import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 import CottageTwoToneIcon from "@mui/icons-material/CottageTwoTone";
 import Primary_Button from "@/Components/Ui/Primary_Button";
 import { icon } from "../../../public/assets/Icons";
-import { SvgIcon } from "@mui/material";
+import { Button, SvgIcon } from "@mui/material";
+import Image from "next/image";
 
 function NavBar({ setModal }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -49,15 +50,15 @@ function NavBar({ setModal }) {
       <Box sx={{ display: "flex" }}>
         <AppBar component="nav" sx={{ background: "#2C3546" }}>
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
+          <Box sx={{display:{sm:'block',}}}>
+          <Image 
+             height={'20'}
+             width={'20'}
+             
+             src={require('../../../public/assets/Images/logo.png')} 
+             />
+          </Box>
+            
             <Typography
               variant="h6"
               component="div"
@@ -68,60 +69,82 @@ function NavBar({ setModal }) {
             <Box
               sx={{
                 display: "flex",
-                width: "25%",
-                justifyContent: "space-around",
+                width: {xs:'100%', sm: "80%", md: "65vw", lg: "30vw" },
+                justifyContent:{xs:'flex-end',lg: "space-around"},
                 height: "15%",
+                gap:1
               }}
             >
-              <Box
+              <Button
+                variant="text"
+                color="secondary"
                 sx={{
                   alignItems: "center",
                   justifyItems: "center",
-                  display: "flex",
+                  display: { xs: "none", sm: 'flex', md: "flex", xl: "flex" },
+                  gap: 0.5,
                 }}
               >
                 <FavoriteTwoToneIcon />
                 <Typography variant="body1" component="div">
                   Saved
                 </Typography>
-              </Box>
+              </Button>
 
               <Box
                 sx={{
                   alignItems: "center",
                   justifyContent: "center",
-                  display: "flex",
+                  display: { xs: "none", sm: 'flex', md: "flex", xl: "flex" },
                   backgroundColor: "#3B475C",
-                  width: 215,
+                  width: "45%",
                   borderRadius: 1,
+                  gap: 2,
                 }}
               >
-                <CottageTwoToneIcon />
-                <Typography variant="body1" component="div">
-                  Advertise property
-                </Typography>
-                <Typography
+                <Box
                   sx={{
-                    backgroundColor: "red",
-                    width: 40,
-                    height: 18,
                     display: "flex",
+                    gap: 0.5,
                     alignItems: "center",
                     justifyContent: "center",
-                    marginLeft: 0.5,
                   }}
-                  variant="p"
-                  component="label"
                 >
-                  free
-                </Typography>
+                  <CottageTwoToneIcon />
+                  <Typography variant="body1">Advertise property</Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    bgcolor: "red",
+                    height: 22,
+                    width: 40,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    display: "flex",
+                  }}
+                >
+                  <Typography variant="body2">free</Typography>
+                </Box>
               </Box>
-              <Primary_Button
-                label="Login"
-                color="secondary"
-                starticon={<SvgIcon component={icon.login} />}
-                onClick={() => setModal(true)}
-              />
+              <Box sx={{ gap: 3,  display:{xs:'flex'}}}>
+                <Primary_Button
+                  label="Login"
+                  color="secondary"
+                  starticon={<SvgIcon component={icon.login} />}
+                  onClick={() => setModal(true)}
+                />
+
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  sx={{ mr: 2, display: { sm: "none" } }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>

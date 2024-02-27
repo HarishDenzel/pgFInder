@@ -31,10 +31,15 @@ export default function Home() {
   console.log(registerInfo);
 
   return (
-    <div>
+    <Box sx={{ width: "100vw" }}>
       {/* <LoginModal modal={modal} setModal={setModal} /> */}
       {/* <OTPModal modal={modal} setModal={setModal} otp={otp} setOTP={setOTP} /> */}
-      <RegisterModal modal={modal} setModal={setModal} registerInfo={registerInfo} setRegisterInfo={setRegisterInfo}/>
+      <RegisterModal
+        modal={modal}
+        setModal={setModal}
+        registerInfo={registerInfo}
+        setRegisterInfo={setRegisterInfo}
+      />
 
       <NavBar setModal={setModal} />
 
@@ -43,7 +48,7 @@ export default function Home() {
           <h1>Simple way to find </h1>
           <h1>the your perfect PG/Hostel</h1>
         </div>
-        {/* search bar */}
+
         <div className="home-search-container">
           <div className="home-select-city">
             <span>{"Select City"}</span>
@@ -92,25 +97,59 @@ export default function Home() {
           </div>
         </div>
       </Grid>
-
-      <div className="home-review-contianer">
-        <div className="home-review-header">
+      <Box sx={{ bgcolor: "#F3ECED", height: "40vh", width: "100%" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            alignSelf: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <DualColorText label1={"What our"} label2={"Customer say"} />
 
-          <Typography style={{ width: "60%" }}>
+          <Typography variant="body2" style={{ width: "100%" }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. has been the industry's standard dummy text ever since the
             1500s,
           </Typography>
-        </div>
-        <div className="review-page-con">
-          <Review_card />
-          <Review_card />
-          <Review_card />
-          <Review_card />
-        </div>
-      </div>
-      <div className="home-pg-count">
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            mt: 3,
+            width: "100%",
+
+            overflowY: "auto",
+          }}
+        >
+          {
+            <>
+              <Box
+                sx={{
+                  height: "100%",
+                  width: "100%",
+                  display: "flex",
+                  gap: 2,
+                  p: 1,
+                  mr: 2,
+                  justifyContent: "space-around",
+                }}
+              >
+                <Review_card />
+                <Review_card />
+                <Review_card />
+                <Review_card />
+              </Box>
+            </>
+          }
+        </Box>
+      </Box>
+      {/* <div className="home-pg-count">
         <div
           style={{ flex: 1, display: "flex", justifyContent: "space-around" }}
         >
@@ -153,7 +192,7 @@ export default function Home() {
           <Card />
           <Card />
         </div>
-      </div>
-    </div>
+      </div> */}
+    </Box>
   );
 }
