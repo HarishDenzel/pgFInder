@@ -8,9 +8,9 @@ function Review_card() {
       <Box
         sx={{
           bgcolor: "#FFF",
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          borderBottomRightRadius: 15,
+          borderTopLeftRadius: 35,
+          borderTopRightRadius: 35,
+          borderBottomRightRadius: 35,
           height: "14vh",
           alignItems: "center",
           justifyContent: "center",

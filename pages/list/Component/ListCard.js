@@ -1,6 +1,6 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from "react-responsive-carousel";
 import room from "../../../public/assets/Images/room.png";
 import {
   Card,
@@ -18,10 +18,12 @@ import food from "../../../public/assets/Images/food.png";
 import Image from "next/image";
 import Primary_Button from "@/Components/Ui/Primary_Button";
 import Secondary_Button from "@/Components/Secondary_Button";
+import { Carousel } from "@/Components/Ui/Carousel";
 
 function listCard() {
   const logo = require("../../../public/assets/Images/food.png");
   const room = require("../../../public/assets/Images/room.png");
+
   return (
     <Card
       variant="outlined"
@@ -39,7 +41,8 @@ function listCard() {
     >
       <Box display={"flex"} sx={{flexDirection:{xs:'column',sm:'column',md:'row',lg:'row',xl:'row'}}}>
         <Box  sx={{ width: "30vw",  }}>
-          <Carousel dynamicHeight={false} showArrows={true} autoPlay>
+        <Carousel data={[{src:room},{src:logo}]}></Carousel>
+          {/* <Carousel dynamicHeight={false} showArrows={true} autoPlay>
             <Box sx={{ width: "90%", height: "90%",alignItems:'center' }}>
               <Image
                 style={{ height: "100%", width: "100%" }}
@@ -54,7 +57,7 @@ function listCard() {
                 src={room}
               ></Image>
             </div>
-          </Carousel>
+          </Carousel> */}
         </Box>
         <CardContent
           sx={{
