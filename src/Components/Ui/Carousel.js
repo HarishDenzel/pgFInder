@@ -7,7 +7,8 @@ import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import { Box, IconButton } from "@mui/material";
 import Image from "next/image";
 
-export const Carousel = ({ data }) => {
+export const Carousel = (props) => {
+  const { data, style } = props;
   const [slide, setSlide] = useState(0);
   const room = require("../../../public/assets/Images/room.png");
   const nextSlide = () => {
@@ -20,14 +21,15 @@ export const Carousel = ({ data }) => {
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "30vw",
-        height: "30vh",
-        position: "relative",
-      }}
+      sx={[
+        style,
+        {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        },
+      ]}
     >
       <IconButton
         sx={{
@@ -35,7 +37,7 @@ export const Carousel = ({ data }) => {
           width: "2rem",
           height: "2rem",
           color: "white",
-          left: "1rem",
+          left: "0.5rem",
         }}
         onClick={prevSlide}
       >
@@ -62,23 +64,37 @@ export const Carousel = ({ data }) => {
           width: "2rem",
           height: "2rem",
           color: "white",
-          right: "1rem",
+          right: "0.5rem",
         }}
         onClick={nextSlide}
       >
         <ChevronRightOutlinedIcon />
       </IconButton>
-      <Box sx={{ display: "flex", position: "absolute", bottom: 1,justifyContent:'center' }}>
+      <Box
+        sx={{
+          display: "flex",
+          position: "absolute",
+          bottom:2,
+          justifyContent: "center",
+        
+          
+        }}
+      >
         {data.map((_, idx) => {
           return (
-           
+            <Box sx={{width:12}}>
             <IconButton
-              sx={{ bottom: "1rem", }}
+             
               onClick={() => setSlide(idx)}
               key={idx}
             >
-              {slide === idx ? <CircleIcon style={{fontSize:'10'}} /> : <CircleOutlinedIcon style={{fontSize:'10'}} />}
+              {slide === idx ? (
+                <CircleIcon style={{ fontSize: "10", }}  />
+              ) : (
+                <CircleOutlinedIcon style={{ fontSize: "10" }} />
+              )}
             </IconButton>
+            </Box>
           );
         })}
       </Box>

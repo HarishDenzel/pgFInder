@@ -30,52 +30,69 @@ function listCard() {
       orientation="horizontal"
       sx={{
         mb: 5,
+
         overflow: "hidden",
         width: "100%",
-        height:'30vh' ,
+        height: { xs: "60vh", lg: "32vh" },
         "&:hover": {
           boxShadow: "md",
           borderColor: "neutral.outlinedHoverBorder",
         },
+        p: 0.5,
       }}
     >
-      <Box display={"flex"} sx={{flexDirection:{xs:'column',sm:'column',md:'row',lg:'row',xl:'row'}}}>
-        <Box  sx={{ width: "30vw",  }}>
-        <Carousel data={[{src:room},{src:logo}]}></Carousel>
-          {/* <Carousel dynamicHeight={false} showArrows={true} autoPlay>
-            <Box sx={{ width: "90%", height: "90%",alignItems:'center' }}>
-              <Image
-                style={{ height: "100%", width: "100%" }}
-                alt="food"
-                src={room}
-              ></Image>
-            </Box>
-            <div>
-              <Image
-                style={{ height: "100%", width: "100%" }}
-                alt="food"
-                src={room}
-              ></Image>
-            </div>
-          </Carousel> */}
+      <Box
+        display={"flex"}
+        flexDirection={{
+          xs: "column",
+          sm: "column",
+          md: "row",
+          lg: "row",
+          xl: "row",
+        }}
+      >
+        <Box
+          sx={{
+            width: { xs: "90vw", lg: "20vw" },
+
+            height: { lg: "30vh" },
+           
+          }}
+        >
+          <Carousel
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+            data={[{ src: room }, { src: logo }]}
+          />
         </Box>
         <CardContent
           sx={{
             width: "70%",
-          
+            gap:1,
+            
+           p:0,
+           px:1,
             flexDirection: "column",
-            justifyContent: "space-between",
+           
+            display:'flex',
+            justifyContent:'space-around'
           }}
         >
-          <Box display={"flex"} sx={{ justifyContent: "space-between" }}>
+        {/* title and share  */}
+          <Box
+            display={"flex"}
+            sx={{ justifyContent: "space-between", }}
+          >
             <Box>
-              <Typography variant="h6">boys hostel</Typography>
-              <Typography variant="body2">
+              <Typography variant="caption">Boys hostel</Typography>
+              <Typography variant="subtitle2">
                 {"Aziz Muluk street, Chennai South"}
               </Typography>
             </Box>
 
-            <Box mx={2}>
+            <Box display={{xs:'none',md:'block'}}>
               <IconButton>
                 <SvgIcon sx={{ fontSize: "20px" }} component={ShareIcon} />
               </IconButton>
@@ -87,16 +104,17 @@ function listCard() {
               </IconButton>
             </Box>
           </Box>
-          <Box sx={{ mt: 2 }}>
-            <Typography variant="body1">Facilities</Typography>
-            <Box display={"flex"} gap={2}>
+          {/* facilities */}
+          <Box>
+            <Typography variant="subtitle2">Facilities</Typography>
+            <Box display={"flex"} sx={{pt:1}} gap={2}>
               <Box display={"flex"} gap={2} sx={{ alignItems: "center" }}>
                 <Image
                   style={{ height: 25, width: 25 }}
                   alt="food"
                   src={logo}
                 />
-                <Typography variant="body2">4 Sharing</Typography>
+                <Typography variant='caption'>4 Sharing</Typography>
                 <Divider
                   sx={{
                     bgcolor: "#EBECF0",
@@ -115,7 +133,7 @@ function listCard() {
                   alt="food"
                   src={logo}
                 />
-                <Typography variant="body2">4 Sharing</Typography>
+                <Typography variant='caption'>4 Sharing</Typography>
                 <Divider
                   sx={{
                     bgcolor: "#EBECF0",
@@ -128,13 +146,13 @@ function listCard() {
                   flexItem
                 />
               </Box>
-              <Box display={"flex"} gap={2} sx={{ alignItems: "center" }}>
+              <Box display={{xs:'none',md:"flex"}} gap={2} sx={{ alignItems: "center" }}>
                 <Image
                   style={{ height: 25, width: 25 }}
                   alt="food"
                   src={logo}
                 />
-                <Typography variant="body2">4 Sharing</Typography>
+                <Typography variant='caption'>4 Sharing</Typography>
                 <Divider
                   sx={{
                     bgcolor: "#EBECF0",
@@ -147,34 +165,36 @@ function listCard() {
                   flexItem
                 />
               </Box>
-              <Box display={"flex"} gap={2} sx={{ alignItems: "center" }}>
+              <Box display={{xs:'none',md:"flex"}} gap={2} sx={{ alignItems: "center" }}>
                 <Image
                   style={{ height: 25, width: 25 }}
                   alt="food"
                   src={logo}
                 />
-                <Typography variant="body2">4 Sharing</Typography>
+                <Typography variant='caption'>4 Sharing</Typography>
               </Box>
             </Box>
           </Box>
           <Box
             sx={{
-              mt: 8,
+             pt:2,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              bgcolor:'red',
+              width:'100%'
             }}
           >
-            <Box>
+            {/* <Box display={{xs:'none',md:'block'}}>
               <Box display={"flex"} sx={{ alignItems: "center" }}>
-                <Typography variant="h5" sx={{ fontWeight: "600" }}>
+                <Typography variant='subtitle2' sx={{ fontWeight: "600" }}>
                   {" "}
                   {"19,000"}
                 </Typography>
-                <Typography variant="body1"> {"/per month"}</Typography>
+                <Typography variant='caption'> {"/per month"}</Typography>
               </Box>
               <Typography variant="caption"> {"Deposit $200"}</Typography>
-            </Box>
+            </Box> */}
 
             <Box display={"flex"} gap={2}>
               <Secondary_Button contained={false} label={"View Details"} />

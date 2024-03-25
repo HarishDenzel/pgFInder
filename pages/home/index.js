@@ -1,7 +1,13 @@
-import { useTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
 import React, { useState } from "react";
 import NavBar from "@/Components/NavBar/NavBar";
-import { Divider, Grid, Typography, Box } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Box,
+} from "@mui/material";
+import OutlinedInput from "@mui/material/OutlinedInput";
+
 import Primary_Button from "@/Components/Ui/Primary_Button";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Review_card from "@/Components/Ui/Review_card";
@@ -18,11 +24,18 @@ import RegisterModal from "@/Components/Modal/RegisterModal";
 import Head from "next/head";
 
 import Counter from "@/Components/Ui/Counter";
+import { theme } from "@/utils/theme";
+import SearchBar from "./Component/SearchBar";
+import {  toast } from 'react-toastify';
+import { useRouter } from "next/router";
 
 export default function Home() {
-  const theme = useTheme();
+  const router = useRouter()
   const [modal, setModal] = useState(false);
   const [otp, setOTP] = useState("");
+  const [searchPlace,setSearchPlace] = useState('')
+
+  const [personName, setPersonName] = React.useState([]);
   const [registerInfo, setRegisterInfo] = useState({
     fullName: "",
     email: "",
@@ -31,6 +44,18 @@ export default function Home() {
     terms: false,
   });
 
+const _searchTrigger =()=>{
+  if(searchPlace == ''){
+    toast('please enter proper value')
+  }else{
+router.push('/list')
+  }
+ 
+}
+let handleChange = (e) => {
+  setSearchPlace(e.target.value);
+ 
+};
   return (
     <Box sx={{ width: "100vw" }}>
       {/* <LoginModal modal={modal} setModal={setModal} /> */}
@@ -48,47 +73,51 @@ export default function Home() {
           <title>PG Finder - Home</title>
         </Head>
 
-        <div className="home-header-bg">
-          <div className="home-header-title">
-            <h1>Simple way to find </h1>
-            <h1>the your perfect PG/Hostel</h1>
-          </div>
+        <Grid className="home-header-bg">
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <Typography
+              color={"#fff"}
+              sx={{ typography: { xs: "h5", sm: "h3", md: "h4" } }}
+              textAlign={"center"}
+            >
+              Simple way to find{" "}
+            </Typography>
+            <Typography
+              color={"#fff"}
+              sx={{ typography: { xs: "h5", sm: "h3", md: "h4" } }}
+              textAlign={"center"}
+            >
+              the your perfect PG/Hostel
+            </Typography>
 
-          <div className="home-search-container">
-            <div className="home-select-city">
-              <span>{"Select City"}</span>
-              <KeyboardArrowDownIcon />
-            </div>
-            <Divider
-              style={{ backgroundColor: "#EBECF0" }}
-              orientation="vertical"
-              flexItem
+           <SearchBar 
+            onChange={handleChange}
+            value={searchPlace}
+           onClick={()=>_searchTrigger()}
             />
-            <div className="home-search-city">
-              <input placeholder="Search location or PG / Hoster name" />
-            </div>
-            <div className="home-search-button">
-              <Primary_Button
-                label={"Search"}
-                color={"primary"}
-                starticon={false}
-              />
-            </div>
-          </div>
-        </div>
+          </Box>
+        </Grid>
+    
 
         <Grid
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "45px",
+            padding: "15px",
+           
           }}
         >
           <Box
             sx={{
-              height: { md: "40vh", sm: "35vh" },
-              width: { md: "90vw", sm: "90vw" },
+              height: {xs:'35vh', md: "40vh", sm: "35vh" },
+              width: {xs:'95vw', md: "90vw", sm: "90vw" },
               alignItems: "center",
               display: "flex",
               justifyContent: "center",
@@ -108,7 +137,7 @@ export default function Home() {
                   {"property for free"}
                 </Typography>
               </Typography>
-              <Typography>
+              <Typography variant='caption'>
                 "Lorem Ipsum is simply dummy text of the printing and
                 typesetting industry.
                 <br /> has been the industry's standard dummy text ever since
@@ -120,7 +149,7 @@ export default function Home() {
             </Box>
           </Box>
         </Grid>
-        <Box sx={{ bgcolor: "#F3ECED", height: "40vh", width: "100%" }}>
+        <Box sx={{ bgcolor: "#F3ECED", height: "50vh", width: "100%" }}>
           <Box
             sx={{
               textAlign: "center",
@@ -172,7 +201,7 @@ export default function Home() {
             }
           </Box>
         </Box>
-        <div className="home-pg-count">
+        {/* <div className="home-pg-count">
           <div
             style={{ flex: 1, display: "flex", justifyContent: "space-around" }}
           >
@@ -180,8 +209,8 @@ export default function Home() {
             <Counter img={sofa} number={100} />
             <Counter img={man} number={100} />
           </div>
-        </div>
-        <div className="home-details">
+        </div> */}
+        {/* <div className="home-details">
           <div className="home-review-header">
             <DualColorText label1={"What our"} label2={"Customer say"} />
 
@@ -197,7 +226,7 @@ export default function Home() {
             <Card />
             <Card />
           </div>
-        </div>
+        </div> */}
       </>
     </Box>
   );

@@ -50,15 +50,14 @@ function NavBar({ setModal }) {
       <Box sx={{ display: "flex" }}>
         <AppBar component="nav" sx={{ background: "#2C3546" }}>
           <Toolbar>
-          <Box sx={{display:{sm:'block',}}}>
-          <Image 
-             height={'20'}
-             width={'20'}
-             
-             src={require('../../../public/assets/Images/logo.png')} 
-             />
-          </Box>
-            
+            <Box sx={{ display: { sm: "block" } }}>
+              <Image
+                height={"20"}
+                width={"20"}
+                src={require("../../../public/assets/Images/logo.png")}
+              />
+            </Box>
+
             <Typography
               variant="h6"
               component="div"
@@ -69,10 +68,10 @@ function NavBar({ setModal }) {
             <Box
               sx={{
                 display: "flex",
-                width: {xs:'100%', sm: "80%", md: "65vw", lg: "30vw" },
-                justifyContent:{xs:'flex-end',lg: "space-around"},
+                width: { xs: "100%", sm: "80%", md: "65vw", lg: "30vw" },
+                justifyContent: { xs: "flex-end", lg: "space-around" },
                 height: "15%",
-                gap:1
+                gap: 1,
               }}
             >
               <Button
@@ -81,7 +80,7 @@ function NavBar({ setModal }) {
                 sx={{
                   alignItems: "center",
                   justifyItems: "center",
-                  display: { xs: "none", sm: 'flex', md: "flex", xl: "flex" },
+                  display: { xs: "none", sm: "flex", md: "flex", xl: "flex" },
                   gap: 0.5,
                 }}
               >
@@ -95,11 +94,12 @@ function NavBar({ setModal }) {
                 sx={{
                   alignItems: "center",
                   justifyContent: "center",
-                  display: { xs: "none", sm: 'flex', md: "flex", xl: "flex" },
+                  display: { xs: "none", sm: "flex", md: "flex", xl: "flex" },
                   backgroundColor: "#3B475C",
-                  width: "45%",
+                  width: { md: "45%", lg: "65%", xl: "65%" },
                   borderRadius: 1,
                   gap: 2,
+                  cursor: "pointer",
                 }}
               >
                 <Box
@@ -111,7 +111,9 @@ function NavBar({ setModal }) {
                   }}
                 >
                   <CottageTwoToneIcon />
-                  <Typography variant="body1">Advertise property</Typography>
+                  <Typography variant="subtitle2">
+                    Advertise property
+                  </Typography>
                 </Box>
 
                 <Box
@@ -127,7 +129,7 @@ function NavBar({ setModal }) {
                   <Typography variant="body2">free</Typography>
                 </Box>
               </Box>
-              <Box sx={{ gap: 3,  display:{xs:'flex'}}}>
+              <Box sx={{ gap: 3, display: { xs: "flex" } }}>
                 <Primary_Button
                   label="Login"
                   color="secondary"

@@ -4,7 +4,13 @@ import React from "react";
 
 function Review_card() {
   return (
-    <Box sx={{ minWidth:{xs:'100vw',sm:'30vw',xl:'20vw'},maxWidth:{sm:'40vw',xl:"20vw"},display:'inline-block' }}>
+    <Box
+      sx={{
+        minWidth: { xs: "100vw", sm: "30vw", xl: "20vw" },
+        maxWidth: { sm: "40vw", xl: "20vw" },
+        display: "inline-block",
+      }}
+    >
       <Box
         sx={{
           bgcolor: "#FFF",
