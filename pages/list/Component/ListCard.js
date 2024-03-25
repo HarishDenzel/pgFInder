@@ -69,9 +69,9 @@ function listCard() {
         </Box>
         <CardContent
           sx={{
-            width: "70%",
+            width:{ xs:'100%',md:"70%"},
             gap:1,
-            
+           
            p:0,
            px:1,
             flexDirection: "column",
@@ -181,11 +181,10 @@ function listCard() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              bgcolor:'red',
               width:'100%'
             }}
           >
-            {/* <Box display={{xs:'none',md:'block'}}>
+            <Box display={{xs:'none',md:'block'}}>
               <Box display={"flex"} sx={{ alignItems: "center" }}>
                 <Typography variant='subtitle2' sx={{ fontWeight: "600" }}>
                   {" "}
@@ -194,7 +193,7 @@ function listCard() {
                 <Typography variant='caption'> {"/per month"}</Typography>
               </Box>
               <Typography variant="caption"> {"Deposit $200"}</Typography>
-            </Box> */}
+            </Box>
 
             <Box display={"flex"} gap={2}>
               <Secondary_Button contained={false} label={"View Details"} />
